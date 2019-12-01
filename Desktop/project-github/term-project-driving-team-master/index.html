@@ -1,0 +1,73 @@
+<!-- Graphics Example Code.  index.html - The web page document containing the canvas (drawing surface), that launches your javascript files. //-->
+<!DOCTYPE html> <html> <head> <meta charset="UTF-8"/> <link rel="icon" href="assets/fav.ico">
+<script> window.tiny_graphics = {};             // Store all our JavaScipt code inside of classes here.
+         window.classes = {}                    
+         </script>        
+<script src="tiny-graphics.js" ></script>  <!--  Javascript "include" files.  Any code in them gets executed as part of the page loading. //-->
+<script src= "dependencies.js" ></script>
+<script src=   "help.js" ></script>
+<script src=   "shadow_shader.js" ></script>
+<script src=   "main-scene.js" ></script>
+<style>
+  * { font-family: monospace }
+  body { background: DarkGray }
+  div { background: white }
+  canvas { width: 1080px; height: 600px; margin-bottom:-3px }
+  .canvas-widget { width: 1080px; background: DimGray }
+  table { border-collapse: collapse; display:block; overflow-x: auto; }
+  table.control-box { width: 1080px; border:0; margin:0; max-height:380px; transition:.5s; overflow-y:scroll; background:DimGray }
+  table.control-box:hover { max-height:500px }
+  table.control-box td { overflow:hidden; border:0; background:DimGray; border-radius:30px }
+  table.control-box td .control-div { background: #EEEEEE; height:338px; padding: 5px 5px 5px 30px; box-shadow: 25px 0px 60px -15px inset }
+  table.control-box td * { background:transparent }
+  table.control-box .control-div td { border-radius:unset }
+  table.control-box .control-title { padding:7px 40px; color:white; background:DarkSlateGray; box-shadow: 25px 0px 70px -15px inset black }
+  .live_string { display:inline-block; background: unset }
+  table, th, td { border: 2px solid black; vertical-align: top; white-space: nowrap }
+  button { background: #4C9F50; color: white; padding: 6px; border-radius:9px;
+           box-shadow: 4px 6px 16px 0px rgba(0,0,0,0.3); transition: background .3s, transform .3s }
+  button:hover, button:focus { transform: scale(1.3); color:gold }
+  .link { text-decoration:underline; cursor: pointer }
+  .show { transform: scaleY(1); height:200px; overflow:auto }
+  .hide { transform: scaleY(0); height:0px; overflow:hidden  }
+</style>
+</head><body>       <!-- Begin typing the next of your web page here. //-->
+
+<div id="main-canvas" class="canvas-widget">
+
+    <div style="color:black;  text-shadow: 1.5px 1.5px white, -1.5px -1.5px white; font-family: 'Press Start 2P', 'Comic Sans MS', 'Comic Sans', cursive; font-size:22px">
+        <div style="position: absolute; left: 25px; top:15px;"> Wall hits: 
+          <span id="score"></span>
+        </div>
+        <div style="position: absolute; left: 800px; top:15px;">  
+          <span> Your Speed: </span>
+          <span id="health" style="height:30px;">
+      
+          </span>
+        </div>
+        <div style="position: absolute; left: 400px; top:15px;">  
+            <span> Points: </span>
+            <span id="power" style="height:30px;">
+        
+            </span>
+          </div>
+      </div>
+   
+  <div id="startScreen" style="textAlign: center;position: absolute; height:600px; width:1080px; left:10px; ;background-image: url('../assets/screen.jpg');; top:8px; color:black; text-shadow: 1px 1px white, -1px -1px white; font-family: 'VT323', 'Comic Sans MS', 'Comic Sans', cursive; font-size:45px"> 
+      <div style="position: relative; margin-left:245px; margin-top:130px; color: #edcf28; text-shadow: 1px 1px,-1px -1px black, 2.5px 2.5px #67477f, 3.5px 3.5px #6898cc; font-size:50px; font-family:  'Comic Sans', cursive;"> 3D DRIVING GAME </div>
+      <br>
+      <span id="startScreenText" style="position:absolute; left:245px; top:200px;">
+        Begin the game by pressing (v)
+      </span>
+    </div>
+    
+<script> "use strict"     // ********************* THE ENTRY POINT OF YOUR WHOLE PROGRAM STARTS HERE ********************* 
+                                           // Use this code to embed a widget into any web page.  The widget inclues a 3D WebGL area
+                                           // (an HTML canvas) and various panels of controls.
+  const scenes = [ "Final_Project_Scene" ];// First, list the names of scenes we will add to our canvas.  These will register themselves
+                                           // with this widget's Canvas_Manager so that their code can be called upon every time a 
+                                           // draw / keyboard / mouse event happens on the web page.
+  new Canvas_Widget( "main-canvas", scenes );             // Use the Canvas_Widget class to display the WebGL demo.  Pass in
+                                                          // the name of the HTML element we are to replace with the widget.
+</script>
+</body></html>
